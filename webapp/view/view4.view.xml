@@ -1,0 +1,55 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myapp.controller.view4"
+	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:f="sap.ui.layout.form">
+
+			<Page title=" i a my view 4">
+				<content>
+					
+		<Table items="{/supplier_set}" id="imsearch11">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Supplier Data"></Title>
+										<ToolbarSpacer />
+										<Button icon="sap-icon://expand-all" press="popup"></Button>
+										<SearchField   search="onSupplierSearch"  width="35%"></SearchField>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<header>
+											<Text text="Name"></Text>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Text text="City"></Text>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Text text="Since When"></Text>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Text text="Contact Person"></Text>
+										</header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{BP_ID}"></Text>
+											<Input value="{EMAIL_ADDRESS}" showValueHelp="true" valueHelpRequest="onValueHelp"></Input>
+											<Text text="{CITY}"></Text>
+											<Text text="{COUNTRY}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+					
+					
+					
+				</content>
+			</Page>
+	
+</mvc:View>

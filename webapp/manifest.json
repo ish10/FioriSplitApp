@@ -1,0 +1,172 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "myapp",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{applicationTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": ["{{Tag}}"]
+		},
+		"ach": "fin-ar-acc",
+		"dataSources": {
+			"ZOCT_FIRST_SRV": {
+				"uri": "/sap/opu/odata/sap/ZOCT_FIRST_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_bluecrystal", "sap_blize"],
+		"icons": {
+			"icon": "sap-icon://account"
+		}
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.70.10",
+			"libs": {
+				"sap.m": {
+					"minVersion": ""
+				},
+				"sap.ui.layout": {
+					"minVersion": ""
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": false,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {},
+				"uri": "i18n/i18n.properties",
+				"preload": false
+			},
+			"jso": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/data/data.json",
+				"preload": false
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"dataSource": "ZOCT_FIRST_SRV",
+				"preload": true
+			}
+		},
+		"rootView": {
+			"viewName": "myapp.view.App",
+			"type": "XML",
+			"id": "imspl"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "myapp.view",
+				"controlId": "imapp"
+			},
+			"routes": [{
+				"name": "empty",
+				"pattern": "",
+				"target": ["empty", "VIEW1"],
+				"titleTarget": ""
+			}, {
+				"name": "VIEW1",
+				"pattern": "fruits/{fruitid}",
+				"target": ["VIEW1", "view2"],
+				"titleTarget": ""
+			}, {
+				"name": "view3",
+				"pattern": "add",
+				"titleTarget": "",
+				"target": ["VIEW1", "view3"]
+			}, {
+				"name": "view4",
+				"pattern": "array/{ara}",
+				"titleTarget": "",
+				"target": ["VIEW1", "view4"]
+			}, {
+				"name": "update",
+				"pattern": "update/{id}",
+				"titleTarget": "",
+				"target": ["VIEW1", "update"]
+			}],
+			"targets": {
+				"empty": {
+					"viewType": "XML",
+					"transition": "",
+					"clearAggregation": "",
+					"viewName": "Empty",
+					"viewId": "imempty",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"
+				},
+				"VIEW1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "view1",
+					"viewId": "imview1",
+					"controlAggregation": "masterPages"
+				},
+				"view2": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "view2",
+					"viewId": "imview2",
+					"controlAggregation": "detailPages"
+				},
+				"view3": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "view3",
+					"viewId": "imview3",
+					"controlAggregation": "detailPages"
+				},
+				"view4": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "view4",
+					"viewId": "imview4",
+					"controlAggregation": "detailPages"
+				},
+				"update": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "update",
+					"viewId": "imupdate",
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zodata/webapp",
+		"_version": "1.1.0"
+	}
+}

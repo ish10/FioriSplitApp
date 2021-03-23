@@ -1,0 +1,94 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myapp.controller.view2" xmlns:f="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" >
+
+			<Page title="Title">
+				<content>      
+				<ObjectHeader id="imtext" intro="{CATEGORY}" title="{NAME}" 
+						  number="{PRICE}" numberUnit="{CURRENCY_CODE}" icon="sap-icon://product"></ObjectHeader>
+						  
+			<IconTabBar>
+				<items>
+					<IconTabFilter key="moreDetails" text="More Details" icon="https://cdn1.iconfinder.com/data/icons/color-bold-style/21/09_1-512.png">
+						<content>
+						<core:Fragment fragmentName="myapp.fragments.moreDetails" type="XML"></core:Fragment>
+						</content>
+					</IconTabFilter>
+					
+					<IconTabFilter key="supplier" text="Suppliers" icon="sap-icon://supplier">
+						<content>
+						<Table items="{/supplier_set}" id="imsearch1">
+								<headerToolbar>
+									<Toolbar>
+										<Title text="Supplier Data"></Title>
+										<ToolbarSpacer />
+										<Button icon="sap-icon://expand-all" press="popup"></Button>
+										<SearchField   search="onSupplierSearch"  width="35%"></SearchField>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<header>
+											<Text text="Name"></Text>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Text text="City"></Text>
+										</header>
+									</Column>
+									<Column id="editData">
+											<header>
+						<Text text="Edit"></Text>
+						</header>
+					</Column>
+									<Column>
+										<header>
+											<Text text="Since When"></Text>
+										</header>
+									</Column>
+									<Column>
+										<header>
+											<Text text="Contact Person"></Text>
+										</header>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{BP_ID}"></Text>
+											<Input value="{EMAIL_ADDRESS}" showValueHelp="true" valueHelpRequest="onValueHelp"></Input>
+											<Button icon="sap-icon://edit" tooltip="edit this product" press="onEdittoupdate"></Button>
+											<Text text="{CITY}"></Text>
+											<Text text="{COUNTRY}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter key="city" text="Cities" icon="sap-icon://home">
+						<content>
+							<Text text="Testing 12 12"></Text>
+							<Select items="{/cities}">
+								<items>
+									<core:Item key="{name}" text="{name}"></core:Item>
+								</items>
+							</Select>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			
+				</content>
+				
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button text="save" type="Ghost" press="onbuttonpress"/>
+						<Button text="cancel" type="Reject"/>
+						
+					</Toolbar>
+				</footer>
+			</Page>
+	
+</mvc:View>

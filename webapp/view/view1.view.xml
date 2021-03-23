@@ -1,0 +1,32 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="myapp.controller.view1"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	
+			<Page title="view1">
+				<content>
+					
+					<SearchField id= "sear" search="onSearch" liveChange="onSearch"/>
+				<List  id="imlist" mode="Delete"  items="{/product_set}" selectionChange="multipleselection" delete="ondelete"  itemPress="onpress" growing="true">
+					
+					<ObjectListItem type="Navigation"	title="{NAME}" intro="{CATEGORY}"
+					number="{PRICE}"
+				>
+<firstStatus>
+
+<ObjectStatus state="Success" text="Available"/>
+
+</firstStatus>
+					</ObjectListItem>
+					</List>
+				
+				</content>
+					<footer>
+					
+							<Toolbar>
+								<Button icon="sap-icon://add" press="onhardpress"></Button>
+								<Button icon="sap-icon://feed" press="onupdatepress"></Button>
+							</Toolbar>
+						
+					</footer>
+			</Page>
+	
+</mvc:View>

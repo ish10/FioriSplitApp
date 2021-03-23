@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+<VBox>
+	<f:SimpleForm id="imtext11">
+		<f:content>
+			<Label text="{i18n>Name}"></Label>
+			<Text text="{NAME}"></Text>
+			<Label text="{i18n>Color}"></Label>
+			<Text text="{PRICE}"></Text>
+			<Label text="{i18n>Type}"></Label>
+			<Text text="{TYPE_CODE}"></Text>
+			<Label text="{i18n>Supplier}"></Label>
+			<Text text="{SUPPLIER_ID}"></Text>
+		</f:content>
+	</f:SimpleForm>
+		<f:SimpleForm id="supplier">
+		<f:content>
+			<Label text="ID"></Label>
+			<Text text="{BP_ID}"></Text>
+			<Label text="EMAILID"></Label>
+			<Text text="{EMAIL_ADDRESS}"></Text>
+			
+		</f:content>
+	</f:SimpleForm>
+	</VBox>
+</core:FragmentDefinition>
